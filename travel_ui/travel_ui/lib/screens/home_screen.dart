@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_ui/widgets/destination_carousel.dart';
+import 'package:travel_ui/widgets/hotel_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // state variable
   int _seletedIndex = 0;
+  int _currentTab = 0;
 
   List<IconData> _icons = [
     FontAwesomeIcons.plane,
@@ -51,37 +53,68 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: ListView(
-        padding: EdgeInsets.symmetric(vertical: 30.0),
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(left: 20.0, right: 120.0),
-            child: Text(
-              'What would you like to find?',
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: ListView(
+          padding: EdgeInsets.symmetric(vertical: 30.0),
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 20.0, right: 120.0),
+              child: Text(
+                'What would you like to find?',
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              // 여 기 이 해 안 됨
+              children: _icons
+                  .asMap()
+                  .entries
+                  .map((MapEntry map) => _buildIcon(map.key))
+                  .toList(), // because childeren gets LIST and this is iterable.
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            DestinationCarousel(),
+            SizedBox(
+              height: 20.0,
+            ),
+            HotelCarousel(),
+          ],
+        ),
+      ) //SafeArea : apply automatic padding
+      ,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentTab,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              size: 30.0,
+            ),
+            title: SizedBox.shrink(),
+          ), BottomNavigationBarItem(
+            icon: Icon(
+              Icons.local_pizza,
+              size: 30.0,
+            ),
+            title: SizedBox.shrink(),
+          ), BottomNavigationBarItem(
+            icon: CircleAvatar(
+              radius: 15.0,
+              backgroundImage: AssetImage('/assets/images/me.jpg'),
+            ),
+            title: SizedBox.shrink(),
           ),
-          SizedBox(
-            height: 20.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // 여 기 이 해 안 됨
-            children: _icons
-                .asMap()
-                .entries
-                .map((MapEntry map) => _buildIcon(map.key))
-                .toList(), // because childeren gets LIST and this is iterable.
-          ),
-          SizedBox(height: 20.0,),
-          DestinationCarousel(),
         ],
       ),
-    ) //SafeArea : apply automatic padding
-        );
+    );
   }
 }
