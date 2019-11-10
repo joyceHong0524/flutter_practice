@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:travel_ui/models/destination_model.dart';
 import 'package:travel_ui/widgets/destination_carousel.dart';
 import 'package:travel_ui/widgets/hotel_carousel.dart';
 
@@ -14,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // state variable
   int _seletedIndex = 0;
   int _currentTab = 0;
+
 
   List<IconData> _icons = [
     FontAwesomeIcons.plane,
@@ -93,6 +95,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentTab,
+        onTap : (int value){
+          setState(() {
+            _currentTab = value;
+          });
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(
@@ -109,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ), BottomNavigationBarItem(
             icon: CircleAvatar(
               radius: 15.0,
-              backgroundImage: AssetImage('/assets/images/me.jpg'),
+              backgroundImage: AssetImage('assets/images/hehe.jpg'),
             ),
             title: SizedBox.shrink(),
           ),

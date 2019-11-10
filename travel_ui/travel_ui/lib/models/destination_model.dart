@@ -16,6 +16,7 @@ class Destination {
   });
 }
 
+
 List<Activity> activities = [
   Activity(
     imageUrl: '/assets/images/stmarksbasilica.jpg',
