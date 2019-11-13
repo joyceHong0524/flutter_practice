@@ -33,7 +33,7 @@ final User greg = User(
 final User james = User(
   id: 3,
   name: 'James',
-  imageUrl: 'assets/images/jamges.jpg',
+  imageUrl: 'assets/images/james.jpg',
 );
 
 final User john = User(
@@ -62,17 +62,17 @@ final User joyce = User(
 
 
 //Favorite Contacts
-List<User> favorites = [sik, greg, john, sam, olivia];
+List<User> favorites = [sik, greg, john, sam, olivia,joyce];
 
 
 //Example chats on home screen.
 List<Message> chats = [
   Message(
-    sender: james,
+    sender: sik,
     time: '5:30 PM',
     text: 'Hey, How\'s it going? Did you get his number?',
     isLiked: false,
-    unread: true,
+    unread: false,
   ),
   Message(
     sender: currentUser,
