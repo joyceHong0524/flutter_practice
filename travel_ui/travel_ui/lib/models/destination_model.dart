@@ -16,10 +16,9 @@ class Destination {
   });
 }
 
-
 List<Activity> activities = [
   Activity(
-    imageUrl: '/assets/images/stmarksbasilica.jpg',
+    imageUrl: 'assets/images/stmarksbasilica.jpg',
     name: 'St.Mark\'s Basilica',
     type: 'Sightseeing Tour',
     startTimes: ['9:00 am', '11:00 am'],
@@ -27,7 +26,7 @@ List<Activity> activities = [
     price: 30,
   ),
   Activity(
-    imageUrl: '/assets/images/gondola.jpg',
+    imageUrl: 'assets/images/gondola.jpg',
     name: 'Walking Tour and Gondola Ride',
     type: 'Sightseeing Tour',
     startTimes: ['11:00 am', '1:00 pm'],
@@ -35,7 +34,7 @@ List<Activity> activities = [
     price: 210,
   ),
   Activity(
-    imageUrl: '/assets/images/murano.jpg',
+    imageUrl: 'assets/images/murano.jpg',
     name: 'Murano and Burano Tour',
     type: 'Sightseeing Tour',
     startTimes: ['12:30 pm', '2:00 pm'],
@@ -71,13 +70,6 @@ List<Destination> destinations = [
     city: 'Sao Paulo',
     country: 'Brazil',
     description: 'Visit Sao Paulo for an amazing and unforgettable adventure',
-    activities: activities,
-  ),
-  Destination(
-    imageUrl: 'assets/images/venice.jpg',
-    city: 'New York',
-    country: 'United States',
-    description: 'Visit New York for an amazing and unforgettable adventure',
     activities: activities,
   ),
 ];
