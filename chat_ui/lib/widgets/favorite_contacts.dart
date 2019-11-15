@@ -1,4 +1,5 @@
 import 'package:chat_ui/models/message_model.dart';
+import 'package:chat_ui/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteContacts extends StatelessWidget {
@@ -36,28 +37,35 @@ class FavoriteContacts extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start, // 여기서 container의 어디에 위치가 결정됨. alingment는 아님 !!!!!
-                  children: <Widget>[
-                    Container(
-                      width: 60.0,
-                      height: 60.0,
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage(favorites[index].imageUrl),
+                child: GestureDetector(
+                  onTap: () => Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => ChatScreen(
+                      user: favorites[index],
+                    )
+                  )),
+                                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start, // 여기서 container의 어디에 위치가 결정됨. alingment는 아님 !!!!!
+                    children: <Widget>[
+                      Container(
+                        width: 60.0,
+                        height: 60.0,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(favorites[index].imageUrl),
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 5.0,
-                    ),
-                    Text(
-                      favorites[index].name,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.blueGrey,
-                        fontSize: 14,
+                      SizedBox(
+                        height: 5.0,
                       ),
-                    ),
-                  ],
+                      Text(
+                        favorites[index].name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Colors.blueGrey,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
