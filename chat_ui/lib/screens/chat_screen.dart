@@ -124,9 +124,8 @@ class _ChatScreenState extends State<ChatScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               IconButton(
-                icon: Icon(
-                  Icons.photo,
-                  color: Colors.blueGrey,
+                icon: Icon(Icons.photo,
+                color: Colors.blueGrey,
                 ),
                 iconSize: 28.0,
                 onPressed: () {},
@@ -140,10 +139,8 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.send,
-                  color: Colors.blueGrey,
-                ),
+                icon: Icon(Icons.send,
+                color: Colors.blueGrey,),
                 iconSize: 28.0,
                 onPressed: () {},
               )
@@ -176,7 +173,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: Column(
+              child: Column(
           children: <Widget>[
             Expanded(
               child: Container(

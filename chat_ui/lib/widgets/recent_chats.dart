@@ -29,8 +29,10 @@ class RecentChats extends StatelessWidget {
                     )),
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 10.0, right: 10.0),
+                  
                   child: Container(
                     height: 100.0,
+                    
                     decoration: chats[index].unread
                         ? BoxDecoration(
                             borderRadius: BorderRadius.only(
